@@ -15,7 +15,7 @@ Instead of heavy looping `.mp4` video backgrounds (which consume high memory and
 * 🌧️ **Dynamic Live Weather**: Reacts in real-time to your Home Assistant `weather.*` entity state:
   * **Rain & Pouring**: Realistic falling raindrops with natural wind angle and subtle floor splashes.
   * **Thunderstorms**: Rainfall paired with natural ambient lightning flash pulses.
-  * **Snow & Sleet**: Soft, drifting snowflakes with realistic sinusoidal wind sway.
+  * **Snow & Sleet**: Soft, drifting snowflakes with realistic wind sway.
   * **Cloudy, Fog & Mist**: Ethereal volumetric cloud layers drifting smoothly across the background.
   * **Clear Night**: Twinkling starlight field matching sun horizon elevation.
   * **Sunny & Clear Day**: Gentle warm ambient floating sunbeam motes.
@@ -25,6 +25,28 @@ Instead of heavy looping `.mp4` video backgrounds (which consume high memory and
 * 🎨 **Visual UI Editor**: Fully configurable via the Home Assistant visual dashboard editor with live previews.
 
 ---
+
+
+## Screenshots
+
+Raining
+<img width="1224" height="490" alt="image" src="https://github.com/user-attachments/assets/808a6f41-5d57-46d0-8040-58e0706617d3" />
+
+Pouring
+<img width="1224" height="490" alt="image" src="https://github.com/user-attachments/assets/346fd764-4f3b-4c63-886f-21eaced7d5cd" />
+
+Snow
+<img width="1224" height="490" alt="image" src="https://github.com/user-attachments/assets/91868b13-5915-4eb4-a7b1-8574075f568e" />
+
+Stars
+<img width="1224" height="490" alt="image" src="https://github.com/user-attachments/assets/0da603f0-d019-45dc-8997-3f338038858d" />
+
+Sun
+<img width="1224" height="490" alt="image" src="https://github.com/user-attachments/assets/fd94aed5-cc71-4ec7-9ee1-45d33c1014c0" />
+
+
+---
+
 
 ## Installation
 
