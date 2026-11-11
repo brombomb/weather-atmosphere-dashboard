@@ -44,6 +44,8 @@ Stars
 Sun
 <img width="1224" height="490" alt="image" src="https://github.com/user-attachments/assets/fd94aed5-cc71-4ec7-9ee1-45d33c1014c0" />
 
+Clouds
+<img width="1224" height="490" alt="image" src="https://github.com/user-attachments/assets/5fc6c32f-1543-421d-8385-a9a94c59d2cb" />
 
 ---
 
