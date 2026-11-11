@@ -184,13 +184,15 @@ class WeatherAtmosphereDashboard extends HTMLElement {
         });
       }
     } else if (state.includes('cloud') || state.includes('fog') || state.includes('wind')) {
-      for (let i = 0; i < 8; i++) {
+      const cloudCount = 14;
+      for (let i = 0; i < cloudCount; i++) {
+        const isForeground = i % 2 === 0;
         this._particles.push({
-          x: Math.random() * this._width,
-          y: Math.random() * (this._height * 0.65),
-          radius: 140 + Math.random() * 220,
-          speed: (0.15 + Math.random() * 0.35) * this._config.speed,
-          opacity: (0.04 + Math.random() * 0.08) * this._config.opacity
+          x: Math.random() * (this._width + 200) - 100,
+          y: Math.random() * (this._height * 0.45),
+          radius: (isForeground ? 160 : 220) + Math.random() * 160,
+          speed: (isForeground ? 0.28 : 0.16) * (0.8 + Math.random() * 0.4) * this._config.speed,
+          opacity: (isForeground ? 0.16 + Math.random() * 0.08 : 0.10 + Math.random() * 0.06) * this._config.opacity
         });
       }
     } else if (isNight) {
@@ -205,15 +207,15 @@ class WeatherAtmosphereDashboard extends HTMLElement {
         });
       }
     } else {
-      // Sunny / Clear Day ambient dust and sunbeams
-      for (let i = 0; i < Math.floor(count * 0.35); i++) {
+      // Sunny / Clear Day ambient floating dust motes & golden light particles
+      for (let i = 0; i < Math.floor(count * 0.6); i++) {
         this._particles.push({
           x: Math.random() * this._width,
           y: Math.random() * this._height,
-          radius: 1 + Math.random() * 2.2,
-          speedY: -(0.25 + Math.random() * 0.45) * this._config.speed,
-          speedX: (Math.random() - 0.5) * 0.3,
-          opacity: (0.15 + Math.random() * 0.35) * this._config.opacity,
+          radius: 1.2 + Math.random() * 2.6,
+          speedY: -(0.3 + Math.random() * 0.5) * this._config.speed,
+          speedX: (Math.random() - 0.5) * 0.35,
+          opacity: (0.35 + Math.random() * 0.45) * this._config.opacity,
           phase: Math.random() * Math.PI * 2
         });
       }
@@ -327,8 +329,10 @@ class WeatherAtmosphereDashboard extends HTMLElement {
     } else if (state.includes('cloud') || state.includes('fog') || state.includes('wind')) {
       for (const p of this._particles) {
         const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius);
-        grad.addColorStop(0, `rgba(225, 235, 250, ${p.opacity})`);
-        grad.addColorStop(1, 'rgba(225, 235, 250, 0)');
+        grad.addColorStop(0, `rgba(215, 226, 240, ${p.opacity})`);
+        grad.addColorStop(0.45, `rgba(205, 218, 235, ${p.opacity * 0.65})`);
+        grad.addColorStop(0.8, `rgba(195, 210, 230, ${p.opacity * 0.25})`);
+        grad.addColorStop(1, 'rgba(190, 205, 225, 0)');
 
         ctx.fillStyle = grad;
         ctx.beginPath();
@@ -338,7 +342,7 @@ class WeatherAtmosphereDashboard extends HTMLElement {
         p.x += p.speed;
         if (p.x - p.radius > this._width) {
           p.x = -p.radius;
-          p.y = Math.random() * (this._height * 0.65);
+          p.y = Math.random() * (this._height * 0.45);
         }
       }
     } else if (isNight) {
@@ -351,13 +355,15 @@ class WeatherAtmosphereDashboard extends HTMLElement {
         ctx.fill();
       }
     } else {
-      // Sunny subtle warm motes
+      // Sunny warm golden air motes
+      ctx.shadowColor = 'rgba(255, 215, 140, 0.5)';
+      ctx.shadowBlur = 4;
       for (const p of this._particles) {
         p.phase += 0.02;
         const op = p.opacity * (0.7 + 0.3 * Math.sin(p.phase));
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 235, 185, ${op})`;
+        ctx.fillStyle = `rgba(255, 238, 190, ${op})`;
         ctx.fill();
 
         p.y += p.speedY;
@@ -368,6 +374,7 @@ class WeatherAtmosphereDashboard extends HTMLElement {
           p.x = Math.random() * this._width;
         }
       }
+      ctx.shadowBlur = 0;
     }
   }
 
