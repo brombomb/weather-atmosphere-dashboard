@@ -1,0 +1,23 @@
+{
+  "name": "weather-atmosphere-dashboard",
+  "version": "1.0.0",
+  "description": "Full-screen atmospheric weather engine (rain, snow, clouds, stars, lightning) for Home Assistant dashboard backgrounds and wall kiosks.",
+  "main": "weather-atmosphere-dashboard.js",
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "keywords": [
+    "home-assistant",
+    "homeassistant",
+    "lovelace",
+    "hacs",
+    "custom-card",
+    "weather",
+    "kiosk",
+    "dashboard",
+    "atmosphere",
+    "canvas"
+  ],
+  "author": "brombomb",
+  "license": "MIT"
+}
